@@ -6,13 +6,17 @@
     <h1>Histórico</h1>
 </div>
 
-{% for lista in historico %}
-    <h2>Histórico do dia {{lista.data_historico}}</h2>
-    <li>Altura: {{lista.altura}}</li>
-    <li>Peso: {{lista.peso}}</li>
-    <li>Imc: {{lista.imc_calculado}}</li>
-    <li>Classificaçao: {{lista.classificacao}}</li>
-{% endfor %}
+{% if historico == () %}
+    <h1>Aqui está Vazio!!!</h1>
+{% else %}
+    {% for lista in historico %}
+        <h2>Histórico do dia {{lista.data_historico}}</h2>
+        <li>Altura: {{lista.altura}}</li>
+        <li>Peso: {{lista.peso}}</li>
+        <li>Imc: {{lista.imc_calculado}}</li>
+        <li>Classificaçao: {{lista.classificacao}}</li>
+    {% endfor %}
+{% endif %}
 <br>
 <a href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
 
