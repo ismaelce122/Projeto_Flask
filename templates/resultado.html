@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div>
+    <h2>Resultado do IMC</h2>
+    <h3>Prezado(a) {{usuario}}</h3>
+    <h3>Seu Imc é {{imc_calculado}}</h3>
+    <h3>Está Classificado(a) como {{classificacao}}</h3>
+    <br>
+    <a href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+</div>
+
+{% endblock %}

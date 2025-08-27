@@ -88,18 +88,17 @@ def login():
 def confirmaCadastro():
     return render_template('confirmaCadastro.html')
 
-@app.route('/historico', methods= ['GET', 'POST'])
+@app.route('/historico')
 def historico():
-    if request.method == 'GET':
-        id_cliente = int(session['usuario_id'])
-        print(f'id: {id_cliente}')
-        conexao = conectar()
-        cursor = conexao.cursor()
-        sql = 'SELECT * FROM historico_imc WHERE id_cliente= %s'
-        cursor.execute(sql, (id_cliente, ))
-        historico = cursor.fetchall()
-        print(historico)
-        return render_template('historico.html', historico = historico)
+    id_cliente = int(session['usuario_id'])
+    print(f'id: {id_cliente}')
+    conexao = conectar()
+    cursor = conexao.cursor()
+    sql = 'SELECT * FROM historico_imc WHERE id_cliente= %s'
+    cursor.execute(sql, (id_cliente, ))
+    historico = cursor.fetchall()
+    print(historico)
+    return render_template('historico.html', historico = historico)
     
 @app.route('/calcular_imc', methods = ['GET', 'POST'])
 def calcularImc():
@@ -121,7 +120,7 @@ def calcularImc():
             cursor.execute(sql, (id_cliente, altura, peso, imc_calculado, classificacao))
             conexao.commit()
             conexao.close()
-            return render_template('painelUsuario.html')
+            return redirect(url_for('resultado', imc_calculado = imc_calculado, classificacao = classificacao ))
         except Exception as e:
             erro = True
             print(f'Houve um erro: {e}')
@@ -137,5 +136,12 @@ def painelUsuario():
 def logout():
     session.clear()
     return redirect(url_for('home'))
+
+@app.route('/resultado')
+def resultado():
+    imc_calculado = request.args.get('imc_calculado')
+    classificacao = request.args.get('classificacao')
+    usuario = session['usuario_nome']
+    return render_template('resultado.html', imc_calculado = imc_calculado, classificacao = classificacao, usuario = usuario)
 
 app.run(debug=True)
