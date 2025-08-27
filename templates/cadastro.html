@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div>
+    <h1>Cadastro</h1>
+</div>
+
+<div>
+    <form action="{{url_for('cadastro')}}" method="post">
+        <div>
+            <label for="nome">Nome:</label> 
+            <input type="text" name="nome" id="nome">
+        </div>
+        <div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha">
+        </div>
+        <div>
+            <input type="submit" value="Cadastrar">
+        </div>
+        <a href="{{url_for('home')}}"><<< Voltar para a Página Inicial</a>
+    </form>
+</div>
+
+{% endblock %}

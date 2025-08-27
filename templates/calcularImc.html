@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div>
+    <h1>Calcular Imc</h1>
+</div>
+
+<div>
+    <form action="{{url_for('calcularImc')}}" method="post">
+        <div>
+            <label for="altura">Altura:</label> 
+            <input type="text" name="altura" id="altura">
+        </div>
+        <div>
+        <div>
+            <label for="peso">Peso:</label>
+            <input type="text" name="peso" id="peso">
+        </div>
+        <div>
+            <input type="submit" value="Calcular">
+        </div>
+        <br>
+        <a href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+    </form>
+</div>
+
+{% endblock %}

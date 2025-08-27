@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Olá {{session.usuario_nome}}, Seja Bem-Vindo(a)!!! 😉😉😉</h1>
+<a href="{{url_for('calcularImc')}}">Calcular IMC</a>
+<br>
+<a href="{{url_for('historico')}}">Histórico</a>
+<br>
+<a href="{{url_for('logout')}}">Sair</a>
+
+{% endblock %}

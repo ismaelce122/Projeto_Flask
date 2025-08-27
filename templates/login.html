@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div>
+    <h1>Login</h1>
+</div>
+
+<div>
+    <form action="{{url_for('login')}}" method="post">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha">
+        </div>
+        <div>
+            <input type="submit" value="Entrar">
+        </div>
+        <p>Não tem Cadastro?<a href="{{url_for('cadastro')}}">Cadastre-se.</a></p>
+        <a href="{{url_for('home')}}"><<< Voltar para a Página Inicial</a>
+    </form>
+</div>
+
+{% endblock %}

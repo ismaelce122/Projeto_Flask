@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div>
+    <h1>Histórico</h1>
+</div>
+
+{% for lista in historico %}
+    <h2>Histórico do dia {{lista.data_historico}}</h2>
+    <li>Altura: {{lista.altura}}</li>
+    <li>Peso: {{lista.peso}}</li>
+    <li>Imc: {{lista.imc_calculado}}</li>
+    <li>Classificaçao: {{lista.classificacao}}</li>
+{% endfor %}
+<br>
+<a href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+
+{% endblock %}

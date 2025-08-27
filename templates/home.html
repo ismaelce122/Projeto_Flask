@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<header>
+        <ul>
+            <li>
+                <a href="{{url_for('login')}}">Login</a>
+            </li>
+            <li>
+                <a href="{{url_for('cadastro')}}">Cadastrar</a>
+            </li>
+        </ul>
+</header>
+
+<h1>Calculadora de IMC</h1>
+<h2>Faça login para calcular seu Imc!!!</h2>
+
+{% endblock %}
+
+<!-- 
+
+Banco de Dados
+
+CREATE DATABASE cadastro;
+
+USE cadastro;
+
+CREATE TABLE clientes (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(100),
+email VARCHAR(100),
+senha VARCHAR(500)
+);
+
+CREATE TABLE historico_imc (
+id_historico_imc INT PRIMARY KEY AUTO_INCREMENT,
+id_cliente INT,
+FOREIGN KEY(id_cliente) REFERENCES clientes(id),
+altura DECIMAL(6, 2),
+peso DECIMAL(6, 2),
+imc_calculado DECIMAL(10, 2),
+classificacao VARCHAR(100),
+data_historico DATE DEFAULT(CURRENT_DATE())
+);
+
+INSERT INTO clientes (nome, email, senha) VALUES ("Ismael Silva Pinho","ismaelce@hotmail.com", "ismael12345"),
+										  ("Maria do Carmo","maria1234@gmail.com","maria12345");	
+
+SELECT * FROM clientes;
+
+SELECT * FROM historico_imc;
+
+DROP TABLE clientes;
+ 
+DROP TABLE historico_imc;
+
+DROP DATABASE cadastro;
+
+-->
