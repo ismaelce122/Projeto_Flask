@@ -2,25 +2,27 @@
 
 {% block conteudo %}
 
-<div>
-    <h1>Login</h1>
+<div class="container mt-4">
+    <h1 class="text-center">Login</h1>
 </div>
 
-<div>
-    <form action="{{url_for('login')}}" method="post">
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+<div class="container">
+    <form class="p-4" action="{{url_for('login')}}" method="post">
+        <div class="mt-3">
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" type="email" name="email" id="email">
+        </div>
+        <div class="mt-3">
+            <label class="form-label" for="senha">Senha:</label>
+            <input class="form-control" type="password" name="senha" id="senha">
+        </div>
+        <div class="mt-2">
+            <input class="btn btn-success" type="submit" value="Entrar">
         </div>
         <div>
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha">
+            <p>Não tem Cadastro?<a href="{{url_for('cadastro')}}">Cadastre-se.</a></p>
+            <a class="btn btn-primary" href="{{url_for('home')}}"><<< Voltar para a Página Inicial</a>
         </div>
-        <div>
-            <input type="submit" value="Entrar">
-        </div>
-        <p>Não tem Cadastro?<a href="{{url_for('cadastro')}}">Cadastre-se.</a></p>
-        <a href="{{url_for('home')}}"><<< Voltar para a Página Inicial</a>
     </form>
 </div>
 

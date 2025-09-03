@@ -5,8 +5,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import bcrypt
 import pymysql as my
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+Bootstrap(app)
 app.secret_key = '123456789'
 
 def conectar():

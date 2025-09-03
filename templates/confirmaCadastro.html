@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
 
+{% block head %}
+
+<meta http-equiv="refresh" content="10; url='{{url_for('login')}}">
+<link rel="stylesheet" href="static/confirma.css">
+
+{% endblock %}
+
 {% block conteudo %}
 
-<meta http-equiv="refresh" content="6 ;url={{url_for('painelUsuario')}}">
-
-<h1>Cadastro Realizado com Sucesso!!! 😉😉😉</h1>
+<div>
+    <div class="box">
+        <div class="cadastro">Estamos realizando o seu Cadastro...</div>
+        <div class="cadastro2">Cadastro Realizado com Sucesso!!!</div>
+    </div>
+    <div class="box2">
+        <div class="loader"></div>
+        <div class="check-container">
+            <div class="checkmark"></div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

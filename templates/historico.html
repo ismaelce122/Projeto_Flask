@@ -2,22 +2,27 @@
 
 {% block conteudo %}
 
-<div>
-    <h1>Histórico</h1>
+<div class="container mt-4">
+    <h1 class="text-center">Histórico</h1>
 </div>
 
 {% if historico == () %}
-    <h1>Aqui está Vazio!!!</h1>
+    <div class="container mb-3">
+        <h1>Aqui está Vazio!!!</h1>
+    </div>
 {% else %}
-    {% for lista in historico %}
-        <h2>Histórico do dia {{lista.data_historico}}</h2>
+{% for lista in historico %}
+    <div class="container">
+        <h2>Dia {{lista.data_historico}}</h2>
         <li>Altura: {{lista.altura}}</li>
         <li>Peso: {{lista.peso}}</li>
         <li>Imc: {{lista.imc_calculado}}</li>
         <li>Classificação: {{lista.classificacao}}</li>
-    {% endfor %}
+    </div>
+{% endfor %}
 {% endif %}
-<br>
-<a href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+<div class="container mt-2">
+    <a class="btn btn-primary" href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+</div>
 
 {% endblock %}

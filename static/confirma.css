@@ -1,0 +1,102 @@
+.loader {
+    width: 80px;
+    height: 80px;
+    transform: scale(0);
+    background-color: #3498db;
+    border-radius: 50%;
+    animation: pulse 1s ease-in-out 5;
+    position: absolute;
+}
+
+.cadastro {
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    color: #3498db;
+    top: 80px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: subir 1s ease-in-out forwards, descer 1s ease-in-out 4.4s forwards;
+}
+
+.cadastro2 {
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    top: 80px;
+    color: green;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: subir2 1s ease-in-out 5s forwards;
+}
+
+.box {
+    overflow: hidden;
+    position: relative;
+    height: 50px;
+    margin-top: 20%;
+}
+
+.box2 {
+    height: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.check-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #2ecc71;
+    display: flex;
+    align-items: center;
+    transform: scale(0);
+    justify-content: center;
+    animation: pop 0.4s ease-out 5s forwards;
+    overflow: hidden;
+}
+
+.checkmark {
+    width: 30px;
+    height: 15px;
+    border-left: 5px solid #2ecc71;
+    border-bottom: 5px solid #2ecc71;
+    transform: rotate(-45deg);
+    opacity: 0;
+    margin-bottom: 10px;
+    animation: draw 1.5s ease-out 5.4s forwards;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes subir {
+    from { top: 80px; }
+    to { top: 10px; }
+}
+
+@keyframes subir2 {
+    from { top: 80px; }
+    to { top: 10px; }
+}
+
+@keyframes descer {
+    from { top: 10px; }
+    to { top: 80px; }
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+@keyframes draw {
+    0% { opacity: 0; transform: rotate(-45deg) scale(0.5); }
+    100% { opacity: 1; transform: rotate(-45deg) scale(1); }
+}
