@@ -2,13 +2,26 @@
 
 {% block conteudo %}
 
-<div>
-    <h2>Resultado do IMC</h2>
-    <h3>Prezado(a) {{usuario}}</h3>
-    <h3>Seu Imc é {{imc_calculado}}</h3>
-    <h3>Está Classificado(a) como {{classificacao}}</h3>
-    <br>
-    <a href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+<div class="container">
+    <div class="mt-4">
+        <div>
+            <h2 class="text-light">Resultado do IMC</h2>
+        </div>
+        <div class="mt-4">
+            <h3 class="text-light">Prezado(a) {{usuario}},</h3>
+            <h3 class="text-light">Seu Imc é {{imc_calculado}},</h3>
+            {% if classificacao == 'Abaixo do Peso!!!' %}
+                <h3 class="text-light">Você está Classificado(a) como<span style="color: purple; text-shadow: 1px 1px black;"> {{classificacao}}</span></h3>
+            {% elif classificacao == 'Sobrepeso!!!' %}
+                <h3 class="text-light">Você está Classificado(a) como<span style="color: yellow; text-shadow: 1px 1px black;"> {{classificacao}}</span></h3>
+            {% elif classificacao == 'Obesidade!!!' %}
+                <h3 class="text-light">Você está Classificado(a) como<span style="color: red; text-shadow: 1px 1px black;"> {{classificacao}}</span></h3>
+            {% else %}
+                <h3 class="text-light">Você está Classificado(a) como<span style="color: green; text-shadow: 1px 1px black;"> {{classificacao}}</span></h3>
+            {% endif %}
+            <a class="btn btn-primary" href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

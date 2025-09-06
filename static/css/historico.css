@@ -1,0 +1,12 @@
+.box1 {
+    border: 1px solid white;
+    width: 250px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(0, 0, 0, 70%);
+}
+
+li {
+    list-style: none;
+}

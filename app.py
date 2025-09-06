@@ -5,10 +5,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import bcrypt
 import pymysql as my
-from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
-Bootstrap(app)
 app.secret_key = '123456789'
 
 def conectar():
@@ -96,13 +94,19 @@ def historico():
     print(f'id: {id_cliente}')
     conexao = conectar()
     cursor = conexao.cursor()
-    sql = 'SELECT * FROM historico_imc WHERE id_cliente= %s'
+    sql = 'SELECT * FROM historico_imc WHERE id_cliente= %s ORDER BY id_historico_imc DESC'
     cursor.execute(sql, (id_cliente, ))
     historico = cursor.fetchall()
-    print(historico)
-    return render_template('historico.html', historico = historico)
+    novoHistorico = []
+    for data in historico:
+        novaData = str(data['data_historico'])
+        ano, mes, dia = novaData.split('-')
+        data_formatada = f'{dia}/{mes}/{ano}'
+        usuarioHistorico = { 'data': data_formatada, 'altura': data['altura'], 'peso': data['peso'], 'imc': data['imc_calculado'], 'classificacao': data['classificacao'] }
+        novoHistorico.append(usuarioHistorico)
+    return render_template('historico.html', novoHistorico = novoHistorico)
     
-@app.route('/calcular_imc', methods = ['GET', 'POST'])
+@app.route('/painel_usuario/calcular_imc', methods = ['GET', 'POST'])
 def calcularImc():
     if request.method == 'GET':
         return render_template('calcularImc.html')
@@ -139,9 +143,10 @@ def logout():
     session.clear()
     return redirect(url_for('home'))
 
-@app.route('/resultado')
+@app.route('/painel_usuario/resultado')
 def resultado():
-    imc_calculado = request.args.get('imc_calculado')
+    imc_calculado = float(request.args.get('imc_calculado'))
+    imc_calculado = f'{imc_calculado:.2f}'
     classificacao = request.args.get('classificacao')
     usuario = session['usuario_nome']
     return render_template('resultado.html', imc_calculado = imc_calculado, classificacao = classificacao, usuario = usuario)
