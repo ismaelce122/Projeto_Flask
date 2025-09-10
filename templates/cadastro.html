@@ -8,13 +8,12 @@
 
 {% block conteudo %}
 
-<div class="container mt-4">
-    <h1 class="text-center text-light">Cadastro</h1>
-</div>
-
-<div class="container">
+<div class="container box fade_in mt-4">
+    <div class="container mt-2">
+        <h1 class="text-center text-light">Cadastro</h1>
+    </div>
     <form class="p-4" action="{{url_for('cadastro')}}" method="post">
-        <div class="mt-3">
+        <div>
             <label class="form-label text-light" for="nome">Nome:</label>
             <input class="form-control" type="text" name="nome" id="nome" required>
         </div>
@@ -30,7 +29,6 @@
             <input class="btn btn-primary mt-2 botao_cadastro" type="submit" value="Cadastrar">
         </div>
         <br>
-        <a class="btn btn-primary" href="{{url_for('home')}}"><<< Voltar para a Página Inicial</a>
     </form>
 </div>
 

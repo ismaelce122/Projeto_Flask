@@ -1,11 +1,7 @@
-.botao_login {
-    width: 120px;
-}
-
 .box {
     border: 2px solid white;
     border-radius: 10px;
-    width: 500px;
+    width: 700px;
 }
 
 @keyframes fadeIn {

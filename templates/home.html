@@ -8,22 +8,9 @@
 
 {% block conteudo %}
 
-<nav class="navbar navbar-expand-lg bg-danger">
-    <div class="container-fluid">
-        <a class="navbar-brand text-light" href="{{url_for('home')}}"><strong>CALCULADORA DE IMC</strong></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active btn btn-primary ms-2 text-light botao" href="{{url_for('login')}}"><strong>Login</strong></a>
-                <a class="nav-link active btn btn-primary ms-2 text-light botao mt-2 mt-lg-0" href="{{url_for('cadastro')}}"><strong>Cadastrar</strong></a>
-            </div>
-        </div>
-    </div>
-</nav>
-<h2 class="text-center mt-3 text-light">Faça login para calcular seu Imc!!!</h2>
+<div class="container fade_in">
+	<h2 class="text-center mt-3 text-light">Faça login para calcular seu Imc!!!</h2>
+</div>
 
 {% endblock %}
 

@@ -1,22 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'baseUsuario.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" href="static/css/painelUsuario.css">
+
+{% endblock %}
 
 {% block conteudo %}
 
-<div class="container mt-4 p-2">
+<div class="container mt-4 p-2 fade_in">
     <h1 class="text-start mt-4 text-light">Olá {{session.usuario_nome}}, Seja Bem-Vindo(a)!!! 😉😉😉</h1>
-    <div>
-        <ul class="nav flex-column">
-            <li class="nav-item mt-2">
-                <a class="btn btn-primary" href="{{url_for('calcularImc')}}">Calcular IMC</a>
-            </li>
-            <li class="nav-item mt-2">
-                <a class="btn btn-primary" href="{{url_for('historico')}}">Histórico</a>
-            </li>
-            <li class="nav-item mt-2">
-                <a class="btn btn-primary" href="{{url_for('logout')}}">Sair</a>
-            </li>
-        </ul>
-    </div>
 </div>
 
 {% endblock %}

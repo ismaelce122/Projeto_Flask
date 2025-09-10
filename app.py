@@ -106,7 +106,7 @@ def historico():
         novoHistorico.append(usuarioHistorico)
     return render_template('historico.html', novoHistorico = novoHistorico)
     
-@app.route('/painel_usuario/calcular_imc', methods = ['GET', 'POST'])
+@app.route('/calcular_imc', methods = ['GET', 'POST'])
 def calcularImc():
     if request.method == 'GET':
         return render_template('calcularImc.html')
@@ -143,12 +143,10 @@ def logout():
     session.clear()
     return redirect(url_for('home'))
 
-@app.route('/painel_usuario/resultado')
+@app.route('/resultado')
 def resultado():
     imc_calculado = float(request.args.get('imc_calculado'))
     imc_calculado = f'{imc_calculado:.2f}'
     classificacao = request.args.get('classificacao')
     usuario = session['usuario_nome']
     return render_template('resultado.html', imc_calculado = imc_calculado, classificacao = classificacao, usuario = usuario)
-
-app.run(debug=True)

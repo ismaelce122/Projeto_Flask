@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'baseUsuario.html' %}
 
 {% block head %}
 
@@ -8,36 +8,36 @@
 
 {% block conteudo %}
 
-<div class="container mt-4">
-    <h1 class="text-center text-light">Histórico</h1>
-</div>
-
-<div class="container">
-    <div class="container mt-3 mb-3">
-        <a class="btn btn-primary" href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
+<div class="container fade_in mt-4">
+    <div class="container mt-2">
+        <h1 class="text-center text-light">Histórico</h1>
     </div>
     {% if novoHistorico == [] %}
-        <div class="container mb-3">
-            <h1 class="text text-light text-center">Aqui está Vazio!!! 😞😞😞</h1>
-        </div>
+    <div class="container mb-3">
+        <h1 class="text text-light text-center">Aqui está Vazio!!! 😞😞😞</h1>
+    </div>
     {% else %}
     <div class="row row-cols-5 justify-content-evenly mb-4">
         {% for lista in novoHistorico %}
-            <div class="col box1 p-2 mt-3">
-                <h4>Data: {{lista.data}}</h4>
-                <li>Altura: {{lista.altura}} Metros</li>
-                <li>Peso: {{lista.peso}} Kg</li> 
-                <li>Imc: {{lista.imc}}</li>
-                {% if lista.classificacao == 'Abaixo do Peso!!!' %}
-                    <li>Classificação:<span style="color: purple; text-shadow: 1px 1px 1px black;"> {{lista.classificacao}}</span></li>
-                {% elif lista.classificacao == 'Sobrepeso!!!' %}
-                    <li>Classificação:<span style="color: yellow; text-shadow: 1px 1px 1px black;"> {{lista.classificacao}}</span></li>
-                {% elif lista.classificacao == 'Obesidade!!!' %}
-                    <li>Classificação:<span style="color: red; text-shadow: 1px 1px 1px black;"> {{lista.classificacao}}</span></li>
-                {% else %}
-                    <li>Classificação:<span style="color: green; text-shadow: 1px 1px 1px black;"> {{lista.classificacao}}</span></li>
-                {% endif %}
-            </div>
+        <div class="col box1 p-2 mt-3">
+            <h4>Data: {{lista.data}}</h4>
+            <li>Altura: {{lista.altura}} Metros</li>
+            <li>Peso: {{lista.peso}} Kg</li>
+            <li>Imc: {{lista.imc}}</li>
+            {% if lista.classificacao == 'Abaixo do Peso!!!' %}
+            <li>Classificação:<span style="color: purple; text-shadow: 1px 1px 1px black;">
+                    {{lista.classificacao}}</span></li>
+            {% elif lista.classificacao == 'Sobrepeso!!!' %}
+            <li>Classificação:<span style="color: yellow; text-shadow: 1px 1px 1px black;">
+                    {{lista.classificacao}}</span></li>
+            {% elif lista.classificacao == 'Obesidade!!!' %}
+            <li>Classificação:<span style="color: red; text-shadow: 1px 1px 1px black;"> {{lista.classificacao}}</span>
+            </li>
+            {% else %}
+            <li>Classificação:<span style="color: green; text-shadow: 1px 1px 1px black;">
+                    {{lista.classificacao}}</span></li>
+            {% endif %}
+        </div>
         {% endfor %}
     </div>
     {% endif %}

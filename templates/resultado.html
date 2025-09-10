@@ -1,11 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'baseUsuario.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" href="static/css/resultado.css">
+
+{% endblock %}
 
 {% block conteudo %}
 
-<div class="container">
-    <div class="mt-4">
+<div class="container box fade_in mt-4">
+    <div class="mt-2">
         <div>
-            <h2 class="text-light">Resultado do IMC</h2>
+            <h2 class="text-light text-center">Resultado</h2>
         </div>
         <div class="mt-4">
             <h3 class="text-light">Prezado(a) {{usuario}},</h3>
@@ -19,7 +25,6 @@
             {% else %}
                 <h3 class="text-light">Você está Classificado(a) como<span style="color: green; text-shadow: 1px 1px black;"> {{classificacao}}</span></h3>
             {% endif %}
-            <a class="btn btn-primary" href="{{url_for('painelUsuario')}}"><<< Voltar ao Painel</a>
         </div>
     </div>
 </div>
